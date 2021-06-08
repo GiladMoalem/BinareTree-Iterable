@@ -34,16 +34,22 @@ int main() {
   for (auto it=tree_of_ints.begin_preorder(); it!=tree_of_ints.end_preorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 1 2 4 5 3
+  cout<<"past pre"<<endl;
+
   for (auto it=tree_of_ints.begin_inorder(); it!=tree_of_ints.end_inorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 4 2 5 1 3 
+  cout<<"past in"<<endl;
+
   for (auto it=tree_of_ints.begin_postorder(); it!=tree_of_ints.end_postorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 4 5 2 3 1
+  cout<<"past post"<<endl;
 
   for (int element: tree_of_ints) {  // this should work like inorder
     cout << element << " " ;
   }  // prints: 4 2 5 1 3 
+  cout<<"past regular"<<endl;
 
 
   // The same should work with other types, e.g. with strings:
@@ -57,24 +63,31 @@ int main() {
   .add_left("1", "2");     // Now 2 is the left child of 1, instead of 9 (the children of 9 remain in place)
   cout << tree_of_strings << endl; 
 
+  auto it=tree_of_strings.begin();
+  cout<< (it==tree_of_strings.end()) <<endl;
+
   for (auto it=tree_of_strings.begin_preorder(); it!=tree_of_strings.end_preorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 1 2 4 5 3
+  cout<<endl;
   for (auto it=tree_of_strings.begin_inorder(); it!=tree_of_strings.end_inorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 4 2 5 1 3 
+  cout<<endl;
   for (auto it=tree_of_strings.begin_postorder(); it!=tree_of_strings.end_postorder(); ++it) {
     cout << (*it) << " " ;
   }  // prints: 4 5 2 3 1
+  cout<<endl;
 
   // demonstrate the arrow operator:
   for (auto it=tree_of_strings.begin_postorder(); it!=tree_of_strings.end_postorder(); ++it) {
     cout << it->size() << " " ;
   }  // prints: 1 1 1 1 1 
+  cout<<endl;
 
 
   for (const string& element: tree_of_strings) {  // this should work like inorder
     cout << element << " " ;
   }   // prints: 4 2 5 1 3 
-
+cout<<"FINISHED"<<endl;
 }
